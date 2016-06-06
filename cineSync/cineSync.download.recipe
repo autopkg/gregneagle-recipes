@@ -49,7 +49,7 @@
                 <key>input_path</key>
                 <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/cineSync.app</string>
                 <key>requirement</key>
-                <string>identifier "com.risingsunresearch.cineSync" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "4E4P4966T7"</string>
+                <string>identifier "com.risingsunresearch.cineSync" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = N3FUB9R6F9</string>
             </dict>
         </dict>
     </array>
