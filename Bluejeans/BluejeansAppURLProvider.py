@@ -32,6 +32,8 @@ __all__ = ["BluejeansAppURLProvider"]
 FEED_URL = 'https://swdl.bluejeans.com/desktop/mac/live.json'
 # the feed points to the current installer pkg, which is downloaded and
 # installed by the "Launcher.app"
+FEED_URL_KEY = 'installer_download_url'
+# and the feed_url_key determines which key is fetched to provide the url variable
 
 class BluejeansAppURLProvider(Processor):
     """Provides URL to the latest Bluejeans app package."""
@@ -40,6 +42,10 @@ class BluejeansAppURLProvider(Processor):
         "feed_url": {
             "required": False,
             "description": "Default is '%s." % FEED_URL,
+        },
+        "feed_url_key": {
+            "required": False,
+            "description": "Default is '%s." % FEED_URL_KEY,
         },
     }
     output_variables = {
@@ -79,9 +85,10 @@ class BluejeansAppURLProvider(Processor):
         # self.env and self.output
         #pylint: disable=no-member
         feed_url = self.env.get('feed_url', FEED_URL)
+        feed_url_key = self.env.get('feed_url_key', FEED_URL_KEY)
         feed = self.get_feed_from_url(feed_url)
         try:
-            self.env['url'] = feed['installer_download_url']
+            self.env['url'] = feed[feed_url_key]
             self.output('Found URL %s' % self.env['url'])
         except AttributeError:
             raise ProcessorError(
