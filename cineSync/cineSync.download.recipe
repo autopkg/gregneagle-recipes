@@ -21,16 +21,16 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://www.cinesync.com/downloads/</string>
+                <string>https://cospective.com/download/</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;relative_url&gt;/files/cineSync.+\.dmg)</string>
+                <string>a href="(?P&lt;download_url&gt;.+/cineSync.+\.dmg)"</string>
             </dict>
         </dict>
         <dict>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://www.cinesync.com%relative_url%</string>
+                <string>%download_url%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
