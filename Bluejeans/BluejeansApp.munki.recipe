@@ -18,7 +18,8 @@
         <dict>
             <key>blocking_applications</key>
             <array>
-                <string>Blue Jeans.app/Contents/Frameworks/BlueJeans Media.app</string>
+                <string>Blue Jeans.app/Contents/MacOS/Blue Jeans</string>
+                <string>BlueJeans.app/Contents/MacOS/BlueJeans</string>
             </array>
             <key>catalogs</key>
             <array>
@@ -34,66 +35,26 @@
             <string>Bluejeans Application</string>
             <key>name</key>
             <string>%NAME%</string>
+            <key>preinstall_script</key>
+            <string>#!/bin/sh
+# remove any existing 1.x version of "Blue Jeans.app"
+if [ -e "/Applications/Blue Jeans.app" ]; then
+    /bin/rm -rf "/Applications/Blue Jeans.app"
+fi
+            </string>
             <key>unattended_install</key>
             <true/>
         </dict>
     </dict>
     <key>ParentRecipe</key>
-    <string>com.github.gregneagle.pkg.bluejeansapp</string>
+    <string>com.github.moofit-recipes.download.bluejeans</string>
     <key>Process</key>
     <array>
         <dict>
-            <key>Processor</key>
-            <string>PkgRootCreator</string>
             <key>Arguments</key>
             <dict>
-                <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/payload</string>
-                <key>pkgdirs</key>
-                <dict>
-                    <key>Applications</key>
-                    <string>0755</string>
-                </dict>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PkgPayloadUnpacker</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkg_payload_path</key>
-                <string>%RECIPE_CACHE_DIR%/unpack/BlueJeansSetup.pkg/Payload</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/payload/Applications/</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiInstallsItemsCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>installs_item_paths</key>
-                <array>
-                    <string>/Applications/Blue Jeans.app</string>
-                </array>
-                <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/payload/</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>additional_makepkginfo_options</key>
-                <array>
-                    <string>--pkgvers</string>
-                    <string>%version%</string>
-                </array>
                 <key>pkg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%filename%</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
