@@ -3,17 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Bluejeans app pkg and imports into Munki.</string>
+    <string>Downloads latest BlueJeans .app and imports into Munki.</string>
     <key>Identifier</key>
     <string>com.github.gregneagle.munki.bluejeansapp</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>BluejeansApp</string>
-        <key>MUNKI_CATEGORY</key>
-        <string>Communications</string>
+        <string>BlueJeansApp</string>
         <key>MUNKI_REPO_SUBDIR</key>
-        <string>apps</string>
+        <string>apps/%NAME%</string>
         <key>pkginfo</key>
         <dict>
             <key>blocking_applications</key>
@@ -26,13 +24,13 @@
                 <string>testing</string>
             </array>
             <key>category</key>
-            <string>%MUNKI_CATEGORY%</string>
+            <string>Communications</string>
             <key>description</key>
-            <string>Bluejeans video conferencing application</string>
+            <string>BlueJeans video conferencing application</string>
             <key>developer</key>
-            <string>Bluejeans</string>
+            <string>BlueJeans</string>
             <key>display_name</key>
-            <string>Bluejeans Application</string>
+            <string>BlueJeans Application</string>
             <key>name</key>
             <string>%NAME%</string>
             <key>preinstall_script</key>
@@ -46,20 +44,33 @@ fi
             <true/>
         </dict>
     </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
     <key>ParentRecipe</key>
     <string>com.github.moofit-recipes.download.bluejeans</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Processor</key>
+            <string>DmgCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>dmg_path</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+                <key>dmg_root</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%pathname%</string>
+                <string>%dmg_path%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
             </dict>
-            <key>Processor</key>
-            <string>MunkiImporter</string>
         </dict>
     </array>
 </dict>
