@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Download recipe for the SuspiciousPackage app xip archive.
+    <string>Defunct recipe.
+Download recipe for the SuspiciousPackage app xip archive.
 Requires a post-0.5.2 version of CodeSignatureVerifier.</string>
     <key>Identifier</key>
     <string>com.github.gregneagle.download.suspiciouspackagexip</string>
@@ -18,30 +19,20 @@ Requires a post-0.5.2 version of CodeSignatureVerifier.</string>
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLDownloader</string>
+            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>http://www.mothersruin.com/software/downloads/SuspiciousPackage.xip</string>
+                <key>warning_message</key>
+                <string>This recipe is now non-fucntional. Please remove it from your list of recipes.</string>
             </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
         </dict>
         <dict>   
             <key>Processor</key>   
-            <string>CodeSignatureVerifier</string>   
+            <string>StopProcessingIf</string>   
             <key>Arguments</key>   
             <dict>   
-                <key>input_path</key>   
-                <string>%pathname%</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Installer: Randy Saldinger (936EB786NH)</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
+                <key>predicate</key>   
+                <string>TRUEPREDICATE</string>
             </dict>
         </dict>
     </array>
