@@ -50,6 +50,16 @@ so you may need to verify that any particular combination is offered.</string>
     <key>Process</key>
     <array>
         <dict>
+            <key>Processor</key>
+            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>Firefox Autoconfig support seems to be on the way out; look into moving to using configuration profiles.
+This recipe will no longer be updated, and may be removed in the future.</string>
+            </dict>
+        </dict>
+        <dict>
             <key>Arguments</key>
             <dict>
                 <key>dmg_path</key>
