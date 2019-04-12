@@ -23,7 +23,7 @@ Requires a post-0.5.2 version of CodeSignatureVerifier.</string>
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
-                <string>This recipe is now non-fucntional. Please remove it from your list of recipes.</string>
+                <string>This recipe is now non-functional. Please remove it from your list of recipes.</string>
             </dict>
         </dict>
         <dict>   
