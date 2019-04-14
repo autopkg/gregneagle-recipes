@@ -16,6 +16,8 @@
 """Processor that outputs a warning message. Intended to alert recipe users of
 upcoming removal of a recipe."""
 
+import os
+
 from autopkglib import Processor
 
 
@@ -31,6 +33,9 @@ class DeprecationWarning(Processor):
         },
     }
     output_variables = {
+        "deprecation_summary_result": {
+            "description": "Description of interesting results."
+        }
     }
     description = __doc__
 
@@ -40,7 +45,18 @@ class DeprecationWarning(Processor):
             "warning_message",
             "### This recipe has been deprecated. It may be removed soon. ###"
         )
-        self.output(warning_message, verbose_level=0)
+        self.output(warning_message)
+        recipe_name = os.path.basename(self.env['RECIPE_PATH'])
+        if recipe_name.endswith('.recipe'):
+            recipe_name = os.path.splitext(recipe_name)[0]
+        self.env["deprecation_summary_result"] = {
+            'summary_text': 'The following recipes have deprecation warnings:',
+            'report_fields': ['name', 'warning'],
+            'data': {
+                'name': recipe_name,
+                'warning': warning_message
+            }
+        }
 
 
 if __name__ == '__main__':
