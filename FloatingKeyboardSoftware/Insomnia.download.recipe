@@ -10,27 +10,18 @@
     <dict>
         <key>NAME</key>
         <string>Insomnia</string>
+        <key>DOWNLOAD_URL</key>
+        <string>https://updates.insomnia.rest/downloads/mac/latest</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0</string>
     <key>Process</key>
     <array>
         <dict>
-            <key>Processor</key>
-            <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://insomnia.rest/download/</string>
-                <key>re_pattern</key>
-                <string>href="(?P&lt;download_url&gt;https://github.com/getinsomnia/insomnia/releases/download/.*/Insomnia.*\.dmg)"</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%download_url%</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
                 <string>%NAME%.dmg</string>
             </dict>
