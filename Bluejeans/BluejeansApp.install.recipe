@@ -19,6 +19,15 @@
     <array>
         <dict>
             <key>Processor</key>
+            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <key>Arguments</key>
+            <dict>
+                <key>warning_message</key>
+                <string>This recipe is no longer maintained. If you require it and can find no adequate replacement, consider forking it and maintaining it yourself.</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
             <string>Installer</string>
             <key>Arguments</key>
             <dict>
