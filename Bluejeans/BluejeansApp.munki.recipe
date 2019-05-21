@@ -56,7 +56,7 @@ fi
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
-                <string>This recipe is no longer maintained. If you require it and can find no adequate replacement, consider forking it and maintaining it yourself.</string>
+                <string>This recipe is no longer maintained. A possible alternative might found here: https://github.com/autopkg/homebysix-recipes/tree/master/BlueJeans.</string>
             </dict>
         </dict>
         <dict>
