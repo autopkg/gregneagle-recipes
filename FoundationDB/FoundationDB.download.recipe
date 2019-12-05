@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads latest version of FoundationDB.</string>
+	<key>Identifier</key>
+	<string>com.github.gregneagle.download.FoundationDB</string>
+	<key>Input</key>
+	<dict>
+	</dict>
+	<key>MiniumumVersion</key>
+	<string>1.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+				<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+						<key>url</key>
+						<string>https://www.foundationdb.org/download/</string>
+						<key>re_pattern</key>
+						<string>a href="(?P&lt;partial_url&gt;/downloads/.+?/FoundationDB-\d+.+?\.pkg)"</string>
+				</dict>
+		</dict>
+		<dict>
+				<key>Arguments</key>
+				<dict>
+						<key>url</key>
+						<string>https://www.foundationdb.org%partial_url%</string>
+				</dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+				<key>Processor</key>
+				<string>CodeSignatureVerifier</string>
+				<key>Arguments</key>
+				<dict>
+						<key>input_path</key>
+						<string>%pathname%</string>
+		        <key>expected_authority_names</key>
+		        <array>
+		            <string>Developer ID Installer: Apple Inc. - FoundationDB (MRPEAQGMKG)</string>
+		            <string>Developer ID Certification Authority</string>
+		            <string>Apple Root CA</string>
+		        </array>
+				</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
