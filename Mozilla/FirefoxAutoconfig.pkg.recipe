@@ -44,14 +44,14 @@ so you may need to verify that any particular combination is offered.</string>
         <string>org.mozilla.firefox.pkg</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.4.0</string>
+    <string>1.1</string>
     <key>ParentRecipe</key>
     <string>com.github.autopkg.download.firefox-rc-en_US</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Processor</key>
-            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <string>DeprecationWarning</string>
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>

@@ -6,6 +6,8 @@
     <string>Downloads latest Bluejeans app pkg and imports into Munki.</string>
     <key>Identifier</key>
     <string>com.github.gregneagle.munki.bluejeansapp</string>
+    <key>MinimumVersion</key>
+    <string>1.1</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
@@ -52,7 +54,7 @@ fi
     <array>
         <dict>
             <key>Processor</key>
-            <string>com.github.gregneagle.autopkg.sharedprocessors/DeprecationWarning</string>
+            <string>DeprecationWarning</string>
             <key>Arguments</key>
             <dict>
                 <key>warning_message</key>
