@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Description</key>
+        <string>Downloads the latest version of Zoom Rooms.</string>
+        <key>Identifier</key>
+        <string>com.github.gregneagle.download.ZoomRooms</string>
+        <key>Input</key>
+        <dict>
+            <key>NAME</key>
+            <string>Zoom Rooms</string>
+            <key>DOWNLOAD_URL</key>
+            <string>https://zoom.us/client/latest/ZoomRooms.pkg</string>
+            <key>USER_AGENT</key>
+            <string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15</string>
+        </dict>
+        <key>MinimumVersion</key>
+        <string>0.2.0</string>
+        <key>Process</key>
+        <array>
+            <dict>
+                <key>Processor</key>
+                <string>URLDownloader</string>
+                <key>Arguments</key>
+                <dict>
+                    <key>url</key>
+                    <string>%DOWNLOAD_URL%</string>
+                    <key>request_headers</key>
+                    <dict>
+                        <key>user-agent</key>
+                        <string>%USER_AGENT%</string>
+                    </dict>
+                    <key>filename</key>
+                    <string>%NAME%.pkg</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>Processor</key>
+                <string>EndOfCheckPhase</string>
+            </dict>
+            <dict>
+                <key>Arguments</key>
+                <dict>
+                    <key>expected_authority_names</key>
+                    <array>
+                        <string>Developer ID Installer: Zoom Video Communications, Inc. (BJ4HAAB9B3)</string>
+                        <string>Developer ID Certification Authority</string>
+                        <string>Apple Root CA</string>
+                    </array>
+                    <key>input_path</key>
+                    <string>%pathname%</string>
+                </dict>
+                <key>Processor</key>
+                <string>CodeSignatureVerifier</string>
+            </dict>
+        </array>
+    </dict>
+</plist>
