@@ -126,9 +126,9 @@ This recipe will no longer be updated, and may be removed in the future.</string
                     <string>purge_ds_store</string>
                     <key>pkgdir</key>
                     <string>%RECIPE_CACHE_DIR%</string>
+                    <key>pkgname</key>
+                    <string>%NAME%_%ORG_NAME%-%version%</string>
                 </dict>
-                <key>pkgname</key>
-                <string>%NAME%_%ORG_NAME%-%version%</string>
             </dict>
             <key>Processor</key>
             <string>PkgCreator</string>
