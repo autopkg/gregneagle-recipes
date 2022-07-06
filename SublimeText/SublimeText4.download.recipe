@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>SublimeText4</string>
         <key>SEARCH_URL</key>
-        <string>https://www.sublimetext.com/download</string>
+        <string>https://www.sublimetext.com/download_thanks</string>
 		<key>SEARCH_PATTERN</key>
         <string>&lt;a href="(https:\/\/download\.sublimetext\.com\/sublime_text_build_[0-9a-zA-Z]*_mac\.zip)"&gt;</string>
 	</dict>
