@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads Apple installer package for the latest release of podman.
+GITHUB_ARCH: one of "amd64" (for Intel) or "aarch64" (for Apple silicon)</string>
+	<key>Identifier</key>
+	<string>com.github.autopkg.gregneagle-recipes.download.podman</string>
+	<key>Input</key>
+	<dict>
+        <key>NAME</key>
+        <string>Podman</string>
+        <key>GITHUB_ARCH</key>
+        <string>amd64</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>GitHubReleasesInfoProvider</string>
+            <key>Arguments</key>
+            <dict>
+                <key>asset_regex</key>
+                <string>podman-installer-macos-%GITHUB_ARCH%.pkg</string>
+                <key>github_repo</key>
+                <string>containers/podman</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>podman-installer-macos-%GITHUB_ARCH%-%version%.pkg</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+        <dict> 
+            <key>Processor</key>
+            <string>CodeSignatureVerifier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_path</key>
+                <string>%pathname%</string>
+                <key>expected_authority_names</key>
+                <array>
+                    <string>Developer ID Installer: Red Hat, Inc. (HYSCB8KRL2)</string>
+                    <string>Developer ID Certification Authority</string>
+                    <string>Apple Root CA</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>

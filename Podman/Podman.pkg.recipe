@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads Apple installer package for the latest release of podman.
+Names package with version number in the filename (helpful for Jamf).
+GITHUB_ARCH: one of "amd64" (for Intel) or "aarch64" (for Apple silicon)</string>
+    <key>Identifier</key>
+    <string>com.github.autopkg.gregneagle-recipes.pkg.podman</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Podman</string>
+        <key>GITHUB_ARCH</key>
+        <string>amd64</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.autopkg.gregneagle-recipes.download.podman</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>source_pkg</key>
+                <string>%pathname%</string>
+            </dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+        </dict>
+    </array>
+</dict>
+</plist>
