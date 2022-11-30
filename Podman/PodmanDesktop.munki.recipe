@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Podman Desktop and imports into Munki.
+Podman Desktop requires podman -- set PODMAN_MUNKI_ITEM_NAME to the name of your "podman" item in Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.autopkg.gregneagle-recipes.munki.PodmanDesktop</string>
+	<key>Input</key>
+	<dict>
+        <key>NAME</key>
+        <string>PodmanDesktop</string>
+        <key>PODMAN_MUNKI_ITEM_NAME</key>
+        <string>Podman</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>utilities</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>A graphical tool for Podman and developing on containers and Kubernetes</string>
+            <key>display_name</key>
+            <string>%NAME%</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>requires</key>
+            <array>
+                <string>%PODMAN_MUNKI_ITEM_NAME%</string>
+            </array>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+        </dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.gregneagle-recipes.download.PodmanDesktop</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
+    </array>
+</dict>
+</plist>
