@@ -19,6 +19,8 @@ MUNKI_ARCH: one of "x86_64" (for Intel) or "arm64" (for Apple silicon)
         <string>x86_64</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>utilities</string>
+        <key>MUNKI_PODMAN_DESKTOP_NAME</key>
+        <string>PodmanDesktop</string>
         <key>pkginfo</key>
         <dict>
             <key>catalogs</key>
@@ -26,7 +28,9 @@ MUNKI_ARCH: one of "x86_64" (for Intel) or "arm64" (for Apple silicon)
                 <string>testing</string>
             </array>
             <key>description</key>
-            <string>Podman: A tool for managing OCI containers and pods.</string>
+            <string>A tool for managing OCI containers and pods.</string>
+            <key>developer</key>
+            <string>podman.io</string>
             <key>display_name</key>
             <string>%NAME%</string>
             <key>name</key>
@@ -39,6 +43,10 @@ MUNKI_ARCH: one of "x86_64" (for Intel) or "arm64" (for Apple silicon)
             <true/>
             <key>unattended_uninstall</key>
             <true/>
+            <key>update_for</key>
+            <array>
+                <string>%MUNKI_PODMAN_DESKTOP_NAME%</string>
+            </array>
         </dict>
     </dict>
     <key>MiniumumVersion</key>
