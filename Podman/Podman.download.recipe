@@ -4,7 +4,7 @@
 <dict>
 	<key>Description</key>
 	<string>Downloads Apple installer package for the latest release of podman.
-GITHUB_ARCH: one of "amd64" (for Intel) or "aarch64" (for Apple silicon)</string>
+GITHUB_ARCH: one of "amd64" (for Intel) or "arm64" (for Apple silicon)</string>
 	<key>Identifier</key>
 	<string>com.github.autopkg.gregneagle-recipes.download.podman</string>
 	<key>Input</key>
