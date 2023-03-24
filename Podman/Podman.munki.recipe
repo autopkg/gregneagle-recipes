@@ -23,6 +23,11 @@ MUNKI_ARCH: one of "x86_64" (for Intel) or "arm64" (for Apple silicon)
         <string>PodmanDesktop</string>
         <key>pkginfo</key>
         <dict>
+            <key>blocking_applications</key>
+            <array>
+                <string>/opt/podman/qemu/bin/qemu-system-x86_64</string>
+                <string>/opt/podman/qemu/bin/qemu-system-aarch64</string>
+            </array>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
@@ -33,8 +38,25 @@ MUNKI_ARCH: one of "x86_64" (for Intel) or "arm64" (for Apple silicon)
             <string>podman.io</string>
             <key>display_name</key>
             <string>%NAME%</string>
+            <key>installer_environment</key>
+            <dict>
+                <key>USER</key>
+                <string>CURRENT_CONSOLE_USER</string>
+            </dict>
             <key>name</key>
             <string>%NAME%</string>
+            <key>postuninstall_script</key>
+            <string>#!/bin/sh
+/bin/rm -r /opt/podman
+exit 0
+            </string>
+            <key>preinstall_script</key>
+            <string>#!/bin/sh
+if [ -f /opt/podman/bin/podman-mac-helper ] ; then
+    /opt/podman/bin/podman-mac-helper uninstall
+fi
+exit 0
+            </string>
             <key>supported_architectures</key>
             <array>
                 <string>%MUNKI_ARCH%</string>
