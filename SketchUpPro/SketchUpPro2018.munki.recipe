@@ -2,53 +2,53 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Imports latest SketchUpPro2018 into Munki. Difference from the dataJAR SketchUp Pro 2018 .munki recipe: this is a copy_from_dmg install instead of a pkg install. I wrote this simply to be consistent with my previous imports of SketchUp Pro 2018.make
+    <key>Description</key>
+    <string>Imports latest SketchUpPro2018 into Munki. Difference from the dataJAR SketchUp Pro 2018 .munki recipe: this is a copy_from_dmg install instead of a pkg install. I wrote this simply to be consistent with my previous imports of SketchUp Pro 2018.make
 </string>
-	<key>Identifier</key>
-	<string>com.github.gregneagle.munki.SketchUpPro2018</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>SketchUpPro2018</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/%NAME%</string>
-		<key>pkginfo</key>
-		<dict>
-			<key>catalogs</key>
-			<array>
-				<string>testing</string>
-			</array>
+    <key>Identifier</key>
+    <string>com.github.gregneagle.munki.SketchUpPro2018</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>SketchUpPro2018</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/%NAME%</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
             <key>category</key>
             <string>Production</string>
-			<key>description</key>
-			<string>The most intuitive way to design, document and communicate your ideas in 3D.</string>
-			<key>display_name</key>
-			<string>SketchUp Pro 2018</string>
-			<key>developer</key>
-			<string>Trimble Navigation Ltd</string>
-			<key>name</key>
-			<string>%NAME%</string>
-			<key>blocking_applications</key>
-			<array>
-				<string>SketchUp</string>
-				<string>Style Builder</string>
-				<string>Layout</string>
-			</array>
-        	<key>minimum_os_version</key>
-        	<string>10.10</string>
-			<key>unattended_install</key>
-			<true/>
-			<key>unattended_uninstall</key>
-			<true/>
-		</dict>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>0.4.1</string>
+            <key>description</key>
+            <string>The most intuitive way to design, document and communicate your ideas in 3D.</string>
+            <key>display_name</key>
+            <string>SketchUp Pro 2018</string>
+            <key>developer</key>
+            <string>Trimble Navigation Ltd</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>blocking_applications</key>
+            <array>
+                <string>SketchUp</string>
+                <string>Style Builder</string>
+                <string>Layout</string>
+            </array>
+            <key>minimum_os_version</key>
+            <string>10.10</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.4.1</string>
     <key>ParentRecipe</key>
     <string>com.github.dataJAR-recipes.download.SketchUp Pro 2018 EN</string>
-	<key>Process</key>
-	<array>
+    <key>Process</key>
+    <array>
         <dict>
             <key>Processor</key>
             <string>PkgRootCreator</string>
@@ -76,28 +76,28 @@
                 <true/>
             </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>faux_root</key>
-				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
-				<key>version_comparison_key</key>
-				<string>CFBundleVersion</string>
-				<key>installs_item_paths</key>
-				<array>
-					<string>/Applications/SketchUp 2018/SketchUp.app</string>
-					<string>/Applications/SketchUp 2018/Layout.app</string>
-					<string>/Applications/SketchUp 2018/Style Builder.app</string>
-				</array>
-			</dict>
-		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                <key>version_comparison_key</key>
+                <string>CFBundleVersion</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/SketchUp 2018/SketchUp.app</string>
+                    <string>/Applications/SketchUp 2018/Layout.app</string>
+                    <string>/Applications/SketchUp 2018/Style Builder.app</string>
+                </array>
+            </dict>
+        </dict>
         
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>Versioner</string>
@@ -109,27 +109,27 @@
                 <string>CFBundleVersion</string>
             </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiInstallsItemsCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>faux_root</key>
-				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
-				<key>version_comparison_key</key>
-				<string>CFBundleVersion</string>
-				<key>installs_item_paths</key>
-				<array>
-					<string>/Applications/SketchUp 2018/SketchUp.app</string>
-					<string>/Applications/SketchUp 2018/Layout.app</string>
-					<string>/Applications/SketchUp 2018/Style Builder.app</string>
-				</array>
-			</dict>
-		</dict>
         <dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-			<key>Arguments</key>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
+                <key>version_comparison_key</key>
+                <string>CFBundleVersion</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/SketchUp 2018/SketchUp.app</string>
+                    <string>/Applications/SketchUp 2018/Layout.app</string>
+                    <string>/Applications/SketchUp 2018/Style Builder.app</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
             <dict>
                 <key>path_list</key>
                 <array>
@@ -137,26 +137,26 @@
                 </array>
             </dict>
         </dict>
-		<dict>
-			<key>Processor</key>
-			<string>MunkiPkginfoMerger</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
                 <key>additional_makepkginfo_options</key>
                 <array>
                     <string>--itemname=SketchUp 2018</string>
                     <string>--pkgvers=%version%</string>
                 </array>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
-		</dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+        </dict>
     </array>
 </dict>
 </plist>
