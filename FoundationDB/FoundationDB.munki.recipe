@@ -2,38 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads latest version of FoundationDB and imports into Munki.</string>
-	<key>Identifier</key>
-	<string>com.github.gregneagle.munki.FoundationDB</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>FoundationDB</string>
-    <key>MUNKI_REPO_SUBDIR</key>
-    <string>utilities</string>
-    <key>pkginfo</key>
+    <key>Description</key>
+    <string>Downloads latest version of FoundationDB and imports into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.gregneagle.munki.FoundationDB</string>
+    <key>Input</key>
     <dict>
-        <key>catalogs</key>
-        <array>
-            <string>testing</string>
-        </array>
-        <key>description</key>
-        <string>FoundationDB gives you the power of ACID transactions in a distributed database.</string>
-        <key>display_name</key>
-        <string>%NAME%</string>
-        <key>name</key>
-        <string>%NAME%</string>
-        <key>unattended_install</key>
-        <true/>
-        <key>unattended_uninstall</key>
-        <true/>
+        <key>NAME</key>
+        <string>FoundationDB</string>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>utilities</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>FoundationDB gives you the power of ACID transactions in a distributed database.</string>
+            <key>display_name</key>
+            <string>%NAME%</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
+        </dict>
     </dict>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0</string>
-	<key>ParentRecipe</key>
-	<string>com.github.gregneagle.download.FoundationDB</string>
+    <key>MinimumVersion</key>
+    <string>1.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.gregneagle.download.FoundationDB</string>
   <key>Process</key>
   <array>
       <dict>
