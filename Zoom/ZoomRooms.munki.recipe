@@ -2,14 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Recipe description</string>
-	<key>Identifier</key>
-	<string>com.github.gregneagle.munki.ZoomRooms</string>
-	<key>Input</key>
-	<dict>
-		<key>NAME</key>
-		<string>ZoomRooms</string>
+    <key>Description</key>
+    <string>Recipe description</string>
+    <key>Identifier</key>
+    <string>com.github.gregneagle.munki.ZoomRooms</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>ZoomRooms</string>
         <key>MUNKI_REPO_SUBDIR</key>
         <string>apps/Zoom</string>
         <key>pkginfo</key>
@@ -31,13 +31,13 @@
             <key>unattended_uninstall</key>
             <true/>
         </dict>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0</string>
-	<key>ParentRecipe</key>
-	<string>com.github.gregneagle.download.ZoomRooms</string>
-	<key>Process</key>
-	<array>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.gregneagle.download.ZoomRooms</string>
+    <key>Process</key>
+    <array>
         <dict>
             <key>Arguments</key>
             <dict>
@@ -49,6 +49,6 @@
             <key>Processor</key>
             <string>MunkiImporter</string>
         </dict>
-	</array>
+    </array>
 </dict>
 </plist>
