@@ -27,6 +27,7 @@ MUNKI_ARCH: one of "x86_64" (for Intel) or "arm64" (for Apple silicon)
             <array>
                 <string>/opt/podman/qemu/bin/qemu-system-x86_64</string>
                 <string>/opt/podman/qemu/bin/qemu-system-aarch64</string>
+                <string>/opt/podman/bin/vfkit</string>
             </array>
             <key>catalogs</key>
             <array>

@@ -2,20 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Description</key>
-	<string>Downloads Apple installer package for the latest release of podman.
+    <key>Description</key>
+    <string>Downloads Apple installer package for the latest release of podman.
 GITHUB_ARCH: one of "amd64" (for Intel) or "arm64" (for Apple silicon)</string>
-	<key>Identifier</key>
-	<string>com.github.autopkg.gregneagle-recipes.download.podman</string>
-	<key>Input</key>
-	<dict>
+    <key>Identifier</key>
+    <string>com.github.autopkg.gregneagle-recipes.download.podman</string>
+    <key>Input</key>
+    <dict>
         <key>NAME</key>
         <string>Podman</string>
         <key>GITHUB_ARCH</key>
         <string>amd64</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0</string>
     <key>Process</key>
     <array>
         <dict>
