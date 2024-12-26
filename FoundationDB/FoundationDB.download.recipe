@@ -3,11 +3,20 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest version of FoundationDB.</string>
+    <string>Downloads latest version of FoundationDB.
+    
+Valid values for ARCH include:
+- "x86_64" (default, Intel)
+- "arm64" (Apple Silicon)
+</string>
     <key>Identifier</key>
     <string>com.github.gregneagle.download.FoundationDB</string>
     <key>Input</key>
     <dict>
+        <key>NAME</key>
+        <string>FoundationDB</string>
+        <key>ARCH</key>
+        <string>x86_64</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0</string>
@@ -15,20 +24,22 @@
     <array>
         <dict>
                 <key>Processor</key>
-                <string>URLTextSearcher</string>
+                <string>GitHubReleasesInfoProvider</string>
                 <key>Arguments</key>
                 <dict>
-                        <key>url</key>
-                        <string>https://www.foundationdb.org/download/</string>
-                        <key>re_pattern</key>
-                        <string>a href="(?P&lt;partial_url&gt;/downloads/.+?/FoundationDB-\d+.+?\.pkg)"</string>
+                        <key>github_repo</key>
+                        <string>apple/foundationdb</string>
+                        <key>include_prereleases</key>
+                        <false/>
+                        <key>asset_regex</key>
+                        <string>FoundationDB-[\d\.]+_%ARCH%.pkg</string>
                 </dict>
         </dict>
         <dict>
                 <key>Arguments</key>
                 <dict>
-                        <key>url</key>
-                        <string>https://www.foundationdb.org%partial_url%</string>
+                        <key>filename</key>
+                        <string>%NAME%-%version%-%ARCH%.pkg</string>
                 </dict>
                 <key>Processor</key>
                 <string>URLDownloader</string>
