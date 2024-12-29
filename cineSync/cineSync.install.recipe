@@ -28,7 +28,7 @@
                 <array>
                     <dict>
                         <key>source_item</key>
-                        <string>cineSync.app</string>
+                        <string>cineSyncPlay.app</string>
                         <key>destination_path</key>
                         <string>/Applications/</string>
                     </dict>

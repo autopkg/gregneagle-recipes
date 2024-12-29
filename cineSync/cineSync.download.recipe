@@ -3,13 +3,20 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Download recipe for cineSync client.</string>
+    <string>Download recipe for cineSync client.
+    
+Valid values for ARCH include:
+- "Intel" (default)
+- "Apple_Silicon"
+</string>
     <key>Identifier</key>
     <string>com.github.gregneagle.download.cineSync</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>cineSync</string>
+        <key>ARCH</key>
+        <string>Intel</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.3.1</string>
@@ -21,21 +28,21 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>https://cospective.com/download/</string>
+                <string>https://www.backlight.co/product/cinesync/download</string>
                 <key>re_pattern</key>
-                <string>a href="(?P&lt;download_url&gt;.+/cineSync.+\.dmg)"</string>
+                <string>a href="(?P&lt;download_url&gt;https://download.ftrack.com/cineSyncPlay/cineSyncPlay_macOS_%ARCH%_(?P&lt;version&gt;[\d\.]+).dmg)"</string>
             </dict>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
                 <string>%download_url%</string>
                 <key>filename</key>
-                <string>%NAME%.dmg</string>
+                <string>%NAME%-%version%-%ARCH%.dmg</string>
             </dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
         </dict>
         <dict>
             <key>Processor</key>
@@ -47,9 +54,9 @@
             <key>Arguments</key>
             <dict>
                 <key>input_path</key>
-                <string>%RECIPE_CACHE_DIR%/downloads/%NAME%.dmg/cineSync.app</string>
+                <string>%pathname%/cineSyncPlay.app</string>
                 <key>requirement</key>
-                <string>identifier "com.risingsunresearch.cineSync" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = N3FUB9R6F9</string>
+                <string>identifier "com.ftrack.cinesyncplay" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = E3CFY5TPH3</string>
             </dict>
         </dict>
     </array>
