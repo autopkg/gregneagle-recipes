@@ -34,7 +34,7 @@
                 <key>Arguments</key>
                 <dict>
                     <key>requirement</key>
-                    <string>identifier "com.bluescape.nativeclient" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R4YWX46XBR</string>
+                    <string>identifier "com.bluescape.nativeclient" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "3SC4Y38TH2"</string>
                     <key>input_path</key>
                     <string>%pathname%/Bluescape.app</string>
                 </dict>
