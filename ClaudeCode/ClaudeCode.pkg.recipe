@@ -55,7 +55,7 @@ Set DOWNLOAD_ARCH to "x64" for Intel, "arm64" for Apple silicon.</string>
 				<key>pkg_request</key>
 				<dict>
 					<key>pkgname</key>
-					<string>%NAME%-%version%-%DOWNLOAD_ARCH%</string>
+					<string>%NAME%-%DOWNLOAD_ARCH%-%version%</string>
 					<key>pkgdir</key>
 					<string>%RECIPE_CACHE_DIR%</string>
 					<key>id</key>
