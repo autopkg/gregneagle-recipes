@@ -3,16 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads Apple installer package for the latest release of podman.
-GITHUB_ARCH: one of "amd64" (for Intel) or "arm64" (for Apple silicon)</string>
+    <string>Downloads the universal Apple installer package for the latest release of podman</string>
     <key>Identifier</key>
     <string>com.github.autopkg.gregneagle-recipes.download.podman</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>Podman</string>
-        <key>GITHUB_ARCH</key>
-        <string>amd64</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0</string>
@@ -24,7 +21,7 @@ GITHUB_ARCH: one of "amd64" (for Intel) or "arm64" (for Apple silicon)</string>
             <key>Arguments</key>
             <dict>
                 <key>asset_regex</key>
-                <string>podman-installer-macos-%GITHUB_ARCH%.pkg</string>
+                <string>podman-installer-macos-universal.pkg</string>
                 <key>github_repo</key>
                 <string>containers/podman</string>
             </dict>
@@ -33,7 +30,7 @@ GITHUB_ARCH: one of "amd64" (for Intel) or "arm64" (for Apple silicon)</string>
             <key>Arguments</key>
             <dict>
                 <key>filename</key>
-                <string>podman-installer-macos-%GITHUB_ARCH%-%version%.pkg</string>
+                <string>podman-installer-macos-universal-%version%.pkg</string>
             </dict>
             <key>Processor</key>
             <string>URLDownloader</string>
