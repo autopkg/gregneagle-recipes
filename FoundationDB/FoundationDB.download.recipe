@@ -22,6 +22,10 @@ Valid values for ARCH include:
     <string>1.0</string>
     <key>Process</key>
     <array>
+	<dict>
+		<key>Processor</key>
+		<string>DeprecationWarning</string>
+	</dict>
         <dict>
                 <key>Processor</key>
                 <string>GitHubReleasesInfoProvider</string>
