@@ -32,7 +32,7 @@ Valid values for ARCH include:
                         <key>include_prereleases</key>
                         <false/>
                         <key>asset_regex</key>
-                        <string>FoundationDB-[\d\.]+_%ARCH%.pkg</string>
+                        <string>FoundationDB-[\d\.]+_%ARCH%\.pkg$</string>
                 </dict>
         </dict>
         <dict>
